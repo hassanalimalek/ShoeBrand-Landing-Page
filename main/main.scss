@@ -275,13 +275,16 @@ footer {
       display: flex;
       margin: 0;
     }
+    li {
+      padding-bottom: 0.4rem;
+    }
     ul li:hover {
       background: none;
       text-decoration: underline;
     }
     a {
       color: white;
-      padding: 0.5rem 1.5em;
+      padding: 0.4rem 1.5em;
       font-size: 0.9rem;
     }
   }
