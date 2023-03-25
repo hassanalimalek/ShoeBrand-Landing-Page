@@ -81,12 +81,12 @@ a {
   font-weight: bold;
 }
 nav {
-  //   display: none;
-  //   po
+  transform: translate(100%);
+  transition: all 0.3s;
   position: fixed;
   right: 0;
   top: 0;
-  width: 55%;
+  width: 0;
   height: 100vh;
   background-color: white;
   z-index: 999;
@@ -96,11 +96,29 @@ nav {
     padding: 0;
     margin-top: 8em;
   }
+  ul li:hover {
+    background-color: aliceblue;
+  }
   a {
     color: black;
     padding: 0.75em 2em;
     display: block;
   }
+  .close {
+    float: right;
+    margin: 2em;
+    display: none;
+  }
+}
+.menu {
+  width: 2rem;
+}
+.nav-open {
+  transform: translate(0%);
+  width: 55%;
+}
+.nav-open .close {
+  display: unset;
 }
 
 header {
@@ -128,6 +146,15 @@ header {
   width: 100%;
   height: 100vh;
   z-index: -1;
+  animation: introLoad 2s forwards;
+}
+@keyframes introLoad {
+  from {
+    clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+  }
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
 }
 .hero {
   color: white;
@@ -135,6 +162,17 @@ header {
   position: relative;
   display: grid;
   place-items: center;
+  animation: moveDown 1s ease-in-out forwards;
+  opacity: 0;
+  @keyframes moveDown {
+    from {
+      transform: translateY(-100px);
+    }
+    to {
+      transform: translateY (0px);
+      opacity: 1;
+    }
+  }
   .hero-text-content {
     margin-top: -30%;
   }
@@ -156,5 +194,147 @@ header {
     path {
       fill: white;
     }
+    animation: moveArrow 2s alternate-reverse infinite;
+  }
+  @keyframes moveArrow {
+    from {
+      transform: translateY(-20px);
+    }
+    to {
+      transform: translatey (0px);
+    }
+  }
+}
+
+/* -------------- */
+/* More Info */
+/* -------------- */
+
+.more-info {
+  margin: 1.2em 0;
+  img {
+    width: 100%;
+    height: 12em;
+    object-fit: cover;
+    margin-bottom: 1.75rem;
+  }
+  .title {
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-bottom: 1.1rem;
+  }
+  .description {
+    line-height: 1.5rem;
+    margin-bottom: 0.8rem;
+  }
+}
+
+/* -------------- */
+/* Media Queries */
+/* -------------- */
+@media only screen and (min-width: 680px) {
+  body {
+    margin: 1.5em 5em;
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@media only screen and (min-width: 920px) {
+  .menu {
+    display: none;
+  }
+  nav {
+    transform: translateX(0);
+    position: unset;
+    display: block;
+    width: auto;
+    height: auto;
+    background: none;
+    svg.close {
+      display: none;
+    }
+    ul {
+      display: flex;
+      margin: 0;
+    }
+    ul li:hover {
+      background: none;
+      text-decoration: underline;
+    }
+    a {
+      color: white;
+      padding: 0.5rem 1.5em;
+      font-size: 0.9rem;
+    }
+  }
+
+  .hero-img {
+    left: unset;
+    right: 0;
+    width: 50%;
+    height: 44em;
+  }
+  .logo {
+    color: black;
+  }
+  .logo span {
+    color: #ce1120;
+  }
+
+  .hero {
+    color: black;
+    width: 40%;
+    margin-top: -4em;
+    margin-bottom: 4rem;
+
+    .hero-text-content {
+      margin-top: unset;
+    }
+    svg {
+      stroke: black;
+      path {
+        fill: black;
+      }
+    }
+  }
+
+  .feature {
+    display: grid;
+    // justify-content: center;
+    grid-template-columns: repeat(2, auto);
+    gap: 3em;
+    margin-bottom: 8em;
+    img {
+      border: 1px solid red;
+      width: 25em;
+      height: unset;
+    }
+    .content {
+      border: 1px solid red;
+      padding-top: 2em;
+      text-align: right;
+      width: 25em;
+      //   margin-left: auto;
+    }
+  }
+  .left-img-col {
+    grid-template-areas: 'left right';
+    .content {
+      text-align: left;
+    }
+    img {
+      grid-area: left;
+    }
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .main-wrapper {
+    // border: 5px solid goldenrod;
+    width: 1200px;
+    margin: 0 auto;
+  }
+  .feature {
+    gap: 0;
   }
 }
