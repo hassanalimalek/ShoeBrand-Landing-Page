@@ -230,6 +230,24 @@ header {
 }
 
 /* -------------- */
+/* Footer */
+/* -------------- */
+footer {
+  background-color: #cc061d;
+  font-weight: 300;
+  text-align: center;
+  color: white;
+  padding: 1rem;
+  width: 100vw;
+  margin-left: -5em;
+  margin-bottom: -1.5em;
+  .copyright {
+    font-family: 'Raleway', sans-serif;
+    font-family: 300;
+  }
+}
+
+/* -------------- */
 /* Media Queries */
 /* -------------- */
 @media only screen and (min-width: 680px) {
@@ -305,16 +323,13 @@ header {
     gap: 3em;
     margin-bottom: 8em;
     img {
-      border: 1px solid red;
       width: 25em;
       height: unset;
     }
     .content {
-      border: 1px solid red;
       padding-top: 2em;
       text-align: right;
       width: 25em;
-      //   margin-left: auto;
     }
   }
   .left-img-col {
@@ -330,7 +345,6 @@ header {
 
 @media only screen and (min-width: 1200px) {
   .main-wrapper {
-    // border: 5px solid goldenrod;
     width: 1200px;
     margin: 0 auto;
   }

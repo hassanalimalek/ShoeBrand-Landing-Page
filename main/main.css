@@ -231,6 +231,24 @@ header svg {
 }
 
 /* -------------- */
+/* Footer */
+/* -------------- */
+footer {
+  background-color: #cc061d;
+  font-weight: 300;
+  text-align: center;
+  color: white;
+  padding: 1rem;
+  width: 100vw;
+  margin-left: -5em;
+  margin-bottom: -1.5em;
+}
+footer .copyright {
+  font-family: "Raleway", sans-serif;
+  font-family: 300;
+}
+
+/* -------------- */
 /* Media Queries */
 /* -------------- */
 @media only screen and (min-width: 680px) {
@@ -301,12 +319,10 @@ header svg {
     margin-bottom: 8em;
   }
   .feature img {
-    border: 1px solid red;
     width: 25em;
     height: unset;
   }
   .feature .content {
-    border: 1px solid red;
     padding-top: 2em;
     text-align: right;
     width: 25em;
